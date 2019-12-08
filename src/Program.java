@@ -20,7 +20,7 @@ public class Program {
 		switch(caso) {
 		
 		case 1:	
-		String path = "C:\\arq.txt";
+		String path = "C:\\arquivo.txt";
 		BufferedReader br = null;
 		FileReader fr = null;
 		try {
@@ -47,15 +47,16 @@ public class Program {
 		
 		case 2:
 		
-			String [] lines= new String[] {"PRIMEIRA LINHA","SEGUNDA LINHA","TERCEIRA LINHA"};
+			String lines=sc.nextLine();
+			
 			String pathe = "C:\\arquivo.txt";
 			
 			try(BufferedWriter bw = new BufferedWriter(new FileWriter(pathe,true))){
-				for(String line : lines) {
-					bw.write(line);
+			
+					bw.write(lines);
 					bw.newLine();
-					
-				}
+		
+				
 			}
 			catch(IOException e) {
 				e.printStackTrace();
@@ -68,7 +69,7 @@ public class Program {
 			
 			System.out.println("escolha a pasta de caminho para salvar o arquivo");
 			String Path=sc.nextLine();
-			
+			String nome=sc.nextLine();
 			File path1 =new File(Path);
 			
 			File [] folders= path1.listFiles(File::isDirectory);
@@ -77,8 +78,8 @@ public class Program {
 				System.out.println(folder);
 			}
 			
-			boolean sucesso= new File(Path+"Pasta_Aplicação").mkdir();
-			System.out.println("Nova pasta criada"+sucesso);
+			boolean sucesso= new File(Path+nome).mkdir();
+			System.out.println("Nova pasta criada "+ sucesso);
 			
 		break;
 		
